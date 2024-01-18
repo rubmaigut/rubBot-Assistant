@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using RubBotApi.Models;
+using RubBotApi.Util;
 
 namespace RubBotApi.Data;
 
@@ -34,41 +35,41 @@ public class RubBotContext: DbContext
             new Status { Id = "2f81a789-9012-11e8-86e5-f0d5bf731f68", Name = "Done" });
 
         modelBuilder.Entity<Area>().HasData(
-            new Area { Id = Guid.NewGuid().ToString(), Name = "Personal",  LabelId =  "2f81a686-7531-11e8-86e5-f0d5bf731f68", AreaCover = "user", IsAchieved = false},
-            new Area { Id = Guid.NewGuid().ToString(), Name = "Health & Fitness", LabelId = "2f81a112-5678-11e8-86e5-f0d534f731f68", AreaCover = "dumbbell", IsAchieved = false},
-            new Area { Id = Guid.NewGuid().ToString(), Name = "Work",LabelId = "2f99a636-7111-11e8-86e5-f0d534f731f68", AreaCover = "briefcase", IsAchieved = false},
-            new Area { Id = Guid.NewGuid().ToString(), Name = "Side Hustle",LabelId = "2f81a686-7531-11e8-86e5-f0d534f731f68", AreaCover = "money-bill-trend-up", IsAchieved = false},
-            new Area { Id = Guid.NewGuid().ToString(), Name = "Travel", LabelId = "2f81a686-7531-11e8-86e5-f0d5bf731f68" ,AreaCover = "route", IsAchieved = false},
-            new Area { Id = Guid.NewGuid().ToString(), Name = "Learning", LabelId = "2f81a612-7531-11e8-86e5-f0d534f731f68" ,AreaCover = "leanpub", IsAchieved = false}
+            new Area { Id = ShortGuidGenerator.GenerateShortGuid(), Name = "Personal",  LabelId =  "2f81a686-7531-11e8-86e5-f0d5bf731f68", AreaCover = "user", IsAchieved = false},
+            new Area { Id = ShortGuidGenerator.GenerateShortGuid(), Name = "Health & Fitness", LabelId = "2f81a112-5678-11e8-86e5-f0d534f731f68", AreaCover = "dumbbell", IsAchieved = false},
+            new Area { Id = ShortGuidGenerator.GenerateShortGuid(), Name = "Work",LabelId = "2f99a636-7111-11e8-86e5-f0d534f731f68", AreaCover = "briefcase", IsAchieved = false},
+            new Area { Id = ShortGuidGenerator.GenerateShortGuid(), Name = "Side Hustle",LabelId = "2f81a686-7531-11e8-86e5-f0d534f731f68", AreaCover = "money-bill-trend-up", IsAchieved = false},
+            new Area { Id = ShortGuidGenerator.GenerateShortGuid(), Name = "Travel", LabelId = "2f81a686-7531-11e8-86e5-f0d5bf731f68" ,AreaCover = "route", IsAchieved = false},
+            new Area { Id = ShortGuidGenerator.GenerateShortGuid(), Name = "Learning", LabelId = "2f81a612-7531-11e8-86e5-f0d534f731f68" ,AreaCover = "leanpub", IsAchieved = false}
             );
 
         modelBuilder.Entity<Area>().HasOne(ar => ar.Type)
             .WithMany(type => type.Areas)
-            .HasForeignKey(ar => ar.LabelId);
-        
+            .HasForeignKey(ar => ar.LabelId).OnDelete(DeleteBehavior.Restrict);
+
         modelBuilder.Entity<Note>().HasOne(note => note.Labels)
             .WithMany(labels => labels.Notes)
-            .HasForeignKey(ar => ar.LabelId);
+            .HasForeignKey(ar => ar.LabelId).OnDelete(DeleteBehavior.Restrict);
         
         modelBuilder.Entity<Note>().HasOne(ar => ar.Status)
             .WithMany(re => re.Notes)
-            .HasForeignKey(ar => ar.StatusId);  
+            .HasForeignKey(ar => ar.StatusId).OnDelete(DeleteBehavior.Restrict);  
         
         modelBuilder.Entity<Note>().HasOne(t => t.Tasks)
             .WithMany(t => t.Notes)
-            .HasForeignKey(ar => ar.TaskId);
+            .HasForeignKey(ar => ar.TaskId).OnDelete(DeleteBehavior.Restrict);
         
         modelBuilder.Entity<Project>().HasOne(ar => ar.Status)
             .WithMany(re => re.Projects)
-            .HasForeignKey(ar => ar.StatusId);
+            .HasForeignKey(ar => ar.StatusId).OnDelete(DeleteBehavior.Restrict);
         
         modelBuilder.Entity<Resource>().HasOne(note => note.Labels)
             .WithMany(labels => labels.Resources)
-            .HasForeignKey(ar => ar.LabelId);
+            .HasForeignKey(ar => ar.LabelId).OnDelete(DeleteBehavior.Restrict);
         
         modelBuilder.Entity<Resource>().HasOne(ar => ar.Status)
             .WithMany(re => re.Resources)
-            .HasForeignKey(ar => ar.StatusId);
+            .HasForeignKey(ar => ar.StatusId).OnDelete(DeleteBehavior.Restrict);
         
         
        
