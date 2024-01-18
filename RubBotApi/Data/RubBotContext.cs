@@ -19,42 +19,52 @@ public class RubBotContext: DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Labels>().HasData(
-            new Labels { Id = "2f81a686-7531-11e8-86e5-f0d5bf731f68", Name = "Personal" },
-            new Labels { Id = "2f81a686-7531-11e8-86e5-f0d534f731f68" , Name =  "Business"},
-            new Labels { Id = "2f81a612-7531-11e8-86e5-f0d534f731f68" , Name =  "School"},
-            new Labels { Id = "2f81a789-1234-11e8-86e5-f0d534f731f68" , Name =  "Productivity"},
-            new Labels { Id = "2f81a112-5678-11e8-86e5-f0d534f731f68" , Name =  "Fitness"},
-            new Labels { Id = "2f81a632-9012-11e8-86e5-f0d534f731f68" , Name =  "Investment"});
+            new Labels { Id = Guid.NewGuid().ToString(), Name = "Personal" },
+            new Labels { Id = Guid.NewGuid().ToString(), Name =  "Business"},
+            new Labels { Id = Guid.NewGuid().ToString(), Name =  "School"},
+            new Labels { Id = Guid.NewGuid().ToString(), Name =  "Productivity"},
+            new Labels { Id = Guid.NewGuid().ToString(), Name =  "Fitness"},
+            new Labels { Id = Guid.NewGuid().ToString(), Name =  "Investment"});
 
         modelBuilder.Entity<Status>().HasData(
-            new Status { Id = "2f81a686-7531-11e8-86e5-f0d5bf731f68", Name = "Inbox" },
-            new Status { Id = "2f81a123-1234-11e8-86e5-f0d5bf731f68", Name = "Planned" },
-            new Status { Id = "2f81a456-5678-11e8-86e5-f0d5bf731f68", Name = "In Progress" },
-            new Status { Id = "2f81a789-9012-11e8-86e5-f0d5bf731f68", Name = "Done" });
+            new Status { Id = Guid.NewGuid().ToString(), Name = "Inbox" },
+            new Status { Id = Guid.NewGuid().ToString(), Name = "Planned" },
+            new Status { Id = Guid.NewGuid().ToString(), Name = "In Progress" },
+            new Status { Id = Guid.NewGuid().ToString(), Name = "Done" });
+
+        modelBuilder.Entity<Area>().HasData(
+            new Area { Id = Guid.NewGuid().ToString(), Name = "Personal", AreaCover = "user", IsAchieved = false},
+            new Area { Id = Guid.NewGuid().ToString(), Name = "Health & Fitness", AreaCover = "dumbbell", IsAchieved = false},
+            new Area { Id = Guid.NewGuid().ToString(), Name = "Work", AreaCover = "briefcase", IsAchieved = false},
+            new Area { Id = Guid.NewGuid().ToString(), Name = "Side Hustle", AreaCover = "money-bill-trend-up", IsAchieved = false},
+            new Area { Id = Guid.NewGuid().ToString(), Name = "Travel", AreaCover = "route", IsAchieved = false},
+            new Area { Id = Guid.NewGuid().ToString(), Name = "Learning", AreaCover = "leanpub", IsAchieved = false}
+            );
 
         modelBuilder.Entity<Area>().HasOne(ar => ar.Type)
             .WithMany(type => type.Areas)
-            .HasForeignKey(ar => ar.Id);
+            .HasForeignKey(ar => ar.LabelId);
         
         modelBuilder.Entity<Note>().HasOne(note => note.Labels)
             .WithMany(labels => labels.Notes)
-            .HasForeignKey(ar => ar.Id);
+            .HasForeignKey(ar => ar.LabelId);
         
         modelBuilder.Entity<Note>().HasOne(ar => ar.Status)
             .WithMany(re => re.Notes)
-            .HasForeignKey(ar => ar.Id);
+            .HasForeignKey(ar => ar.StatusId);
         
         modelBuilder.Entity<Project>().HasOne(ar => ar.Status)
             .WithMany(re => re.Projects)
-            .HasForeignKey(ar => ar.Id);
+            .HasForeignKey(ar => ar.StatusId);
         
         modelBuilder.Entity<Resource>().HasOne(note => note.Labels)
             .WithMany(labels => labels.Resources)
-            .HasForeignKey(ar => ar.Id);
+            .HasForeignKey(ar => ar.LabelId);
         
         modelBuilder.Entity<Resource>().HasOne(ar => ar.Status)
             .WithMany(re => re.Resources)
-            .HasForeignKey(ar => ar.Id);
+            .HasForeignKey(ar => ar.StatusId);
+        
         
        
     }
