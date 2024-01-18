@@ -13,7 +13,7 @@ public class Project
         Notes = new HashSet<Note>();
     }
     public string Id { get; set; } = Guid.NewGuid().ToString();
-    public string Name { get; set; }
+    public string Name { get; set; } = string.Empty;
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
     public string StatusId { get; set; }
