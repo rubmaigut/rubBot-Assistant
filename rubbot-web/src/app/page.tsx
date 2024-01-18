@@ -1,5 +1,7 @@
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import RubBotPopup from "./components/RubBot-Popup";
+import MyWeekCalendar from "./components/Week-Calendar";
 
 export default function Home() {
   const events = [
@@ -22,26 +24,10 @@ export default function Home() {
           />
         </div>
 
-        {/* Calendar */}
-        <div className="mt-4 p-4 rounded shadow-lg flex justify-between">
-          {/* ... */}
+        <div className="mt-4 rounded shadow-lg flex justify-between">
+         <MyWeekCalendar />
         </div>
-
-        {/* Schedule */}
-        <div className="mt-4 space-y-2">
-          {events.map((event, index) => (
-            <div
-              key={index}
-              className="p-4 rounded shadow-lg flex items-center justify-between"
-            >
-              <span className="font-bold">{event.time}</span>
-              <div className="flex items-center">
-                <span className="text-xl">{event.icon}</span>
-                <span className="ml-2">{event.title}</span>
-              </div>
-            </div>
-          ))}
-        </div>
+      <Footer/>
       </div>
     </main>
   );
