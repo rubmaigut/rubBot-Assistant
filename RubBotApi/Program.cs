@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using RubBotApi.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,8 +9,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// builder.Services.AddDbContext<CdCollectionContext>(options =>
-//     options.UseSqlServer(builder.Configuration.GetConnectionString("rubBotAssistant")));
+builder.Services.AddDbContext<RubBotContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("rubBotAssistant")));
 
 var app = builder.Build();
 
