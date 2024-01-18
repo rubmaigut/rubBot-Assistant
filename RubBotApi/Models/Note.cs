@@ -17,6 +17,8 @@ public class Note
     public DateTime LastEditedTime { get; set; } = DateTime.Now;
     public virtual Area Areas { get; set; }
     public virtual Project Projects { get; set; }
+    public string TaskId { get; set; } 
+    [JsonIgnore]
     public virtual Tasks Tasks { get; set; }
     public virtual Resource Resources { get; set; }
     public bool IsAchieved { get; set; }
