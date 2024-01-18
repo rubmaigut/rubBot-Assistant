@@ -10,7 +10,7 @@ public class Project
     public DateTime EndDate { get; set; }
     public virtual Status Status { get; set; }
     public virtual ICollection<Area> Areas { get; set; }
-    public ICollection<Task> Tasks { get; set; }
+    public ICollection<Tasks> Tasks { get; set; }
     public ICollection<Resource> Resources { get; set; }
     public ICollection<Note> Notes { get; set; }
     public bool IsAchieved { get; set; }

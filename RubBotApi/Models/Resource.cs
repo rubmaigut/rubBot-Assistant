@@ -9,7 +9,7 @@ public class Resource
     public string Url { get; set; }
     public ICollection<Area> Areas { get; set; }
     public ICollection<Project> Projects { get; set; }
-    public ICollection<Task> Tasks { get; set; }
+    public ICollection<Tasks> Tasks { get; set; }
     public bool IsAchieved { get; set; }
     public bool Favorite { get; set; }
 

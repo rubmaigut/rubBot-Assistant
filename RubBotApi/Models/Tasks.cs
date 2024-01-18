@@ -1,6 +1,6 @@
 namespace RubBotApi.Models;
 
-public class Task
+public class Tasks
 {
     public string Id { get; set; } = Guid.NewGuid().ToString();
     public bool Done { get; set; }
