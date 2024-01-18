@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { ChatMessage, ChatMessageType } from '../components/ChatMessage';
 import { ChatInput } from '../components/ChatInput';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import Image from 'next/image'
 
 const ChatComponent: React.FC = () => {
   const [messages, setMessages] = useState<ChatMessageType[]>([
@@ -16,7 +19,24 @@ const ChatComponent: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col w-full">
+    <section className='flex min-h-screen flex-col items-center justify-between md:p-24'>
+    <div className="max-w-md min-h-[60rem] mx-auto bg-primary-bg p-4 rounded shadow-lg">
+      <div className='w-full h-24 flex items-center'>
+      <FontAwesomeIcon icon={faChevronLeft} className="w-6 text-secondary-dark" />
+      <div className="flex items-center">
+      <Image 
+            src="RubBot.svg"
+            alt="RubBot.svg"
+            className=""
+            width={60}
+            height={20}
+            priority
+            />
+        <span className="font-semibold text-lg text-primary-font ml-2">RubBot</span>
+      </div>
+      </div>
+      <span className='w-full flex justify-center text-sm text-primary-font mb-4'>today</span>
+      
       <div className="flex-grow overflow-auto">
         {messages.map((message, index) => (
           <ChatMessage key={index} message={message} />
@@ -24,6 +44,7 @@ const ChatComponent: React.FC = () => {
       </div>
       <ChatInput sendMessage={sendMessage} />
     </div>
+    </section>
   );
 };
 
