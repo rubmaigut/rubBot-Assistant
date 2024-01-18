@@ -18,7 +18,8 @@ const config: Config = {
         'secondary-bg': '#FFF3DA',
         'primary-font': '#545454',
         'primary-bright': '#FAAB4E',
-        'bot-message-bg': '#66564A'
+        'secondary-dark': '#482A25',
+        'bot-message-bg': '#66564A',
       }
     },
   },
