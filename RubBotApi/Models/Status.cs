@@ -1,8 +1,10 @@
+using RubBotApi.Util;
+
 namespace RubBotApi.Models;
 
 public class Status
 {
-    public string Id { get; set; } = Guid.NewGuid().ToString();
+    public string Id { get; set; } = ShortGuidGenerator.GenerateShortGuid();
     public string Name { get; set; }
     public ICollection<Note> Notes { get; set; }
     public ICollection<Project> Projects { get; set; }

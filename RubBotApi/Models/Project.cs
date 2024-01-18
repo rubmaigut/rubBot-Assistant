@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Microsoft.VisualBasic;
+using RubBotApi.Util;
 
 namespace RubBotApi.Models;
 
@@ -12,7 +13,7 @@ public class Project
         Resources = new HashSet<Resource>();
         Notes = new HashSet<Note>();
     }
-    public string Id { get; set; } = Guid.NewGuid().ToString();
+    public string Id { get; set; } = ShortGuidGenerator.GenerateShortGuid();
     public string Name { get; set; } = string.Empty;
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }

@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using RubBotApi.Util;
 
 namespace RubBotApi.Models;
 
@@ -10,7 +11,7 @@ public class Resource
         Areas = new HashSet<Area>();
         Tasks = new HashSet<Tasks>();
     }
-    public string Id { get; set; } = Guid.NewGuid().ToString();
+    public string Id { get; set; } =ShortGuidGenerator.GenerateShortGuid();
     public string Name { get; set; }
     public string StatusId { get; set; }
     [JsonIgnore]
