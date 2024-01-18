@@ -15,8 +15,9 @@ public class Area
     public string Name { get; set; }
     
     public string LabelId { get; set; }
+    
     [JsonIgnore]
-    public virtual Labels Type { get; set; }
+    public virtual Labels Labels { get; set; }
     public string AreaCover { get; set; }
     public bool IsAchieved { get; set; }
     public ICollection<Project> Projects { get; set; }

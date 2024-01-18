@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RubBot.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+36370504e24897defdb8f42f91c812fcba2bb2af")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a456b7595074998bb9918469a2d6923bbdf6e117")]
 [assembly: System.Reflection.AssemblyProductAttribute("RubBot.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RubBot.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
