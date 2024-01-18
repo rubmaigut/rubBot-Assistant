@@ -7,6 +7,7 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
   color: #545454;
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -26,3 +27,39 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.rbc-row .rbc-time-header-cel {
+  min-height: 0px;
+}
+
+.rbc-header {
+  @apply text-primary-font ;
+}
+.rbc-time-header .rbc-time-header-content {
+  @apply block;
+}
+.rbc-time-view {
+  @apply w-10/12 h-0
+}
+.rbc-toolbar {
+  @apply w-11/12 flex justify-between;
+}
+.rbc-btn {
+  @apply text-purple-600 hover:text-purple-700;
+}
+.rbc-today {
+  @apply bg-blue-200;
+}
+.rbc-time-gutter .rbc-timeslot-group {
+  @apply bg-gray-100;
+}
+.rbc-event {
+  @apply bg-green-300 p-1 rounded shadow-md;
+}
+.rbc-event-label {
+  @apply text-sm;
+}
+.rbc-event-content {
+  @apply text-black;
+}
+
