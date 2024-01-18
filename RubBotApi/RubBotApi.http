@@ -1,6 +1,6 @@
 @RubBotApi_HostAddress = http://localhost:5164
 
-GET {{RubBotApi_HostAddress}}/RubBotAssistant/
+GET {{RubBotApi_HostAddress}}/Project/
 Accept: application/json
 
 ###

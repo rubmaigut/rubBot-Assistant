@@ -5,10 +5,10 @@ namespace RubBotApi.Models;
 
 public class Tasks
 {
-    public Tasks()
-    {
-        Notes = new HashSet<Note>();
-    }
+    // public Tasks()
+    // {
+    //     Notes = new HashSet<Note>();
+    // }
     
     public string Id { get; set; } = ShortGuidGenerator.GenerateShortGuid();
     public bool Done { get; set; }
@@ -17,7 +17,7 @@ public class Tasks
     public DateTime Date { get; set; }
     public virtual Project Projects { get; set; }
     public virtual Resource Resources { get; set; }
-    public virtual ICollection<Note> Notes { get; set; }
+    //public virtual ICollection<Note> Notes { get; set; }
     public bool IsAchieved { get; set; }
     
 }

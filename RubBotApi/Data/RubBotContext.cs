@@ -10,8 +10,8 @@ public class RubBotContext: DbContext
     
     public DbSet<Area> Areas { get; set; }
     public DbSet<Labels> Labels { get; set; }
-    public DbSet<Note> Notes { get; set; }
-    public DbSet<NoteBooks> NoteBooks { get; set; }
+    //public DbSet<Note> Notes { get; set; }
+    //public DbSet<NoteBooks> NoteBooks { get; set; }
     public DbSet<Project> Projects { get; set; }
     public DbSet<Resource> Resources { get; set; }
     public DbSet<Status> Status { get; set; }
@@ -47,17 +47,17 @@ public class RubBotContext: DbContext
             .WithMany(type => type.Areas)
             .HasForeignKey(ar => ar.LabelId).OnDelete(DeleteBehavior.Restrict);
 
-        modelBuilder.Entity<Note>().HasOne(note => note.Labels)
-            .WithMany(labels => labels.Notes)
-            .HasForeignKey(ar => ar.LabelId).OnDelete(DeleteBehavior.Restrict);
-        
-        modelBuilder.Entity<Note>().HasOne(ar => ar.Status)
-            .WithMany(re => re.Notes)
-            .HasForeignKey(ar => ar.StatusId).OnDelete(DeleteBehavior.Restrict);  
-        
-        modelBuilder.Entity<Note>().HasOne(t => t.Tasks)
-            .WithMany(t => t.Notes)
-            .HasForeignKey(ar => ar.TaskId).OnDelete(DeleteBehavior.Restrict);
+        // modelBuilder.Entity<Note>().HasOne(note => note.Labels)
+        //     .WithMany(labels => labels.Notes)
+        //     .HasForeignKey(ar => ar.LabelId).OnDelete(DeleteBehavior.Restrict);
+        //
+        // modelBuilder.Entity<Note>().HasOne(ar => ar.Status)
+        //     .WithMany(re => re.Notes)
+        //     .HasForeignKey(ar => ar.StatusId).OnDelete(DeleteBehavior.Restrict);  
+        //
+        // modelBuilder.Entity<Note>().HasOne(t => t.Tasks)
+        //     .WithMany(t => t.Notes)
+        //     .HasForeignKey(ar => ar.TaskId).OnDelete(DeleteBehavior.Restrict);
         
         modelBuilder.Entity<Project>().HasOne(ar => ar.Status)
             .WithMany(re => re.Projects)

@@ -1,0 +1,63 @@
+# Ignore node_modules directory
+/node_modules
+# Ignore .next directory (Next.js build directory)
+.next/
+# Ignore .env.local file (local environment variables)
+.env.local
+# Ignore .env.* files (environment variables)
+.env.*
+# Ignore .DS_Store files (macOS)
+.DS_Store
+# Ignore .idea directory (JetBrains IDE)
+.idea/
+# Ignore Visual Studio Code settings
+.vscode/
+# Ignore compiled C# files and directories
+bin/
+obj/
+# Ignore NuGet packages
+packages/
+# Ignore Visual Studio files
+*.user
+*.suo
+*.sln.docstates
+*.userprefs
+# Ignore ReSharper files
+_ReSharper*
+# Ignore Rider files
+# Ignore compiled C# files
+*.exe
+*.dll
+*.pdb
+# Ignore build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Ll]og/
+[Ll]ogs/
+# Visual Studio Code directories
+.vscode/
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+# Folder config file
+Desktop.ini
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+# VS Code directories
+.vscode/
+.idea/
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+# Windows shortcuts
+*.lnk

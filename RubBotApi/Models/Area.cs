@@ -9,7 +9,7 @@ public class Area
     {
         Projects = new HashSet<Project>();
         Resources = new HashSet<Resource>();
-        Notes = new HashSet<Note>();
+        //Notes = new HashSet<Note>();
     }
     public string Id { get; set; } = ShortGuidGenerator.GenerateShortGuid();
     public string Name { get; set; }
@@ -21,5 +21,5 @@ public class Area
     public bool IsAchieved { get; set; }
     public ICollection<Project> Projects { get; set; }
     public ICollection<Resource> Resources { get; set; }
-    public ICollection<Note> Notes { get; set; }
+    //public ICollection<Note> Notes { get; set; }
 }

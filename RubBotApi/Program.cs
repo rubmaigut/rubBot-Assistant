@@ -15,8 +15,14 @@ builder.Services.AddScoped<ITasksService, TasksService>();
 builder.Services.AddScoped<IResourceService, ResourceService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-var app = builder.Build();
 
+var app = builder.Build();
+app.UseCors(policy =>
+{
+    policy.AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader();  //set the allowed origin
+});
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -25,5 +31,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+
+
 app.MapControllers();
+
 app.Run();
