@@ -18,7 +18,8 @@ public class Resource
     public string LabelId { get; set; }
     [JsonIgnore]
     public virtual Labels Labels { get; set; }
-    public string Url { get; set; }
+    
+    public string Url { get; set; } = string.Empty;
     public ICollection<Area> Areas { get; set; }
     public ICollection<Project> Projects { get; set; }
     public ICollection<Tasks> Tasks { get; set; }
