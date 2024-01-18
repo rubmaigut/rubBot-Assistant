@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.rbc-header {
+  @apply text-primary-font ;
+}
+.rbc-time-header .rbc-time-header-content {
+  @apply block;
+}
+.rbc-time-view {
+  @apply w-10/12 h-0
+}
+.rbc-toolbar {
+  @apply w-11/12 flex justify-between;
+}
+.rbc-btn {
+  @apply text-purple-600 hover:text-purple-700;
+}
+.rbc-today {
+  @apply bg-blue-200;
+}
+.rbc-time-gutter .rbc-timeslot-group {
+  @apply bg-gray-100;
+}
+.rbc-event {
+  @apply bg-green-300 p-1 rounded shadow-md;
+}
+.rbc-event-label {
+  @apply text-sm;
+}
+.rbc-event-content {
+  @apply text-black;
+}
+
+
