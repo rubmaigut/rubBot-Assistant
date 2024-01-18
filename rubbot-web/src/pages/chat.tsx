@@ -16,7 +16,7 @@ const ChatComponent: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col w-full">
       <div className="flex-grow overflow-auto">
         {messages.map((message, index) => (
           <ChatMessage key={index} message={message} />
