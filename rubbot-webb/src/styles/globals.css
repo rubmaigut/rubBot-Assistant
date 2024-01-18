@@ -6,8 +6,6 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  color: #545454;
-
 }
 
 @media (prefers-color-scheme: dark) {
@@ -26,10 +24,6 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
-
-.rbc-row .rbc-time-header-cel {
-  min-height: 0px;
 }
 
 .rbc-header {
@@ -62,4 +56,5 @@ body {
 .rbc-event-content {
   @apply text-black;
 }
+
 

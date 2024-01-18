@@ -1,7 +1,10 @@
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import RubBotPopup from "./components/RubBot-Popup";
-import MyWeekCalendar from "./components/Week-Calendar";
+import { Inter } from 'next/font/google'
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import RubBotPopup from "../components/RubBot-Popup";
+import MyWeekCalendar from "../components/Week-Calendar";
+
+const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const events = [
@@ -31,4 +34,5 @@ export default function Home() {
       </div>
     </main>
   );
+  
 }

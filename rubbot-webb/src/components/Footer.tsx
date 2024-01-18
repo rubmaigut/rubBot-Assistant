@@ -1,10 +1,10 @@
+import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCommentMedical,
   faChartSimple,
   faClipboardList,
 } from "@fortawesome/free-solid-svg-icons";
-import Link from "next/link";
 
 interface FooterProps {
   className?: string;
