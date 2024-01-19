@@ -25,6 +25,7 @@ packages/
 # Ignore ReSharper files
 _ReSharper*
 # Ignore Rider files
+.idea/
 # Ignore compiled C# files
 *.exe
 *.dll
