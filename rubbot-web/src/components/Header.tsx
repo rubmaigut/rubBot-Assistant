@@ -20,7 +20,7 @@ const Header: React.FC<HeaderProps> = ({ logo, className }) => {
             priority
             />
             </div>
-            <div className='w-2/6 flex justify-end mr-4'>
+            <div className='w-12 flex justify-end mr-4'>
             <FontAwesomeIcon
             icon={faUser}
             className="w-6"

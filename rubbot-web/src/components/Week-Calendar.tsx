@@ -9,9 +9,10 @@ import getDay from 'date-fns/getDay';
 import {startOfDay} from 'date-fns/startOfDay';
 import {addHours} from 'date-fns/addHours';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+import enUS from 'date-fns/locale/en-US'
 
 const locales = {
-  'en-US': require('date-fns/locale/en-US'),
+  'en-US': enUS,
 };
 
 const localizer = dateFnsLocalizer({
@@ -61,7 +62,7 @@ const MyWeekCalendar: React.FC = () => {
   const [events, setEvents] = useState<CalendarEvent[]>([
     {
       start: new Date(),
-      end: new Date(),
+      end: addHours(new Date(), 6), 
       title: 'Research Business',
       desc: 'Some description',
     },

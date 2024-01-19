@@ -12,7 +12,7 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = () => {
   return (
-    <footer className="w-full bg-white h-24 flex items-center justify-between px-8">
+    <footer className="w-full bg-white h-16 flex items-center justify-between px-8 py-4 rounded-xl">
         <div className="flex justify-center">
           <FontAwesomeIcon
             icon={faClipboardList}
