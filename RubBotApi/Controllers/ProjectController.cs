@@ -39,5 +39,18 @@ public class ProjectController: ControllerBase
         var createdProject = _projectService.CreateProject(project);
         return CreatedAtAction(nameof(GetProject), new { projectId = createdProject.Id }, createdProject);
     }
+    
+    [HttpPut("{id}")]
+    public IActionResult UpdateProject(string projectId,[FromBody] Project project)
+    {
+        var updateProject = _projectService.UpdateProject(projectId, project);
+        return updateProject is null ? NotFound() : Ok(updateProject);
+    }
 
+    [HttpDelete("{id}")]
+    public IActionResult DeleteProject(string projectId)
+    {
+        _projectService.DeleteProject(projectId);
+        return StatusCode(202);
+    }
 }
