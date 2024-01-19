@@ -35,12 +35,12 @@ public class RubBotContext: DbContext
             new Status { Id = "2f81a789-9012-11e8-86e5-f0d5bf731f68", Name = "Done" });
 
         modelBuilder.Entity<Area>().HasData(
-            new Area { Id = ShortGuidGenerator.GenerateShortGuid(), Name = "Personal",  LabelId =  "2f81a686-7531-11e8-86e5-f0d5bf731f68", AreaCover = "user", IsAchieved = false},
-            new Area { Id = ShortGuidGenerator.GenerateShortGuid(), Name = "Health & Fitness", LabelId = "2f81a112-5678-11e8-86e5-f0d534f731f68", AreaCover = "dumbbell", IsAchieved = false},
-            new Area { Id = ShortGuidGenerator.GenerateShortGuid(), Name = "Work",LabelId = "2f99a636-7111-11e8-86e5-f0d534f731f68", AreaCover = "briefcase", IsAchieved = false},
-            new Area { Id = ShortGuidGenerator.GenerateShortGuid(), Name = "Side Hustle",LabelId = "2f81a686-7531-11e8-86e5-f0d534f731f68", AreaCover = "money-bill-trend-up", IsAchieved = false},
-            new Area { Id = ShortGuidGenerator.GenerateShortGuid(), Name = "Travel", LabelId = "2f81a686-7531-11e8-86e5-f0d5bf731f68" ,AreaCover = "route", IsAchieved = false},
-            new Area { Id = ShortGuidGenerator.GenerateShortGuid(), Name = "Learning", LabelId = "2f81a612-7531-11e8-86e5-f0d534f731f68" ,AreaCover = "leanpub", IsAchieved = false}
+            new Area { Id = ShortGuidGenerator.GenerateShortGuid(), Name = "Personal",  LabelId =  "1f81a686-1531-11e8-16e5-f0d5bf731f61", AreaCover = "user", IsAchieved = false},
+            new Area { Id = ShortGuidGenerator.GenerateShortGuid(), Name = "Health & Fitness", LabelId = "6f81a112-6678-11e8-66e5-f0d534f731f66", AreaCover = "dumbbell", IsAchieved = false},
+            new Area { Id = ShortGuidGenerator.GenerateShortGuid(), Name = "Work",LabelId = "2f99a636-2111-11e8-26e5-f0d534f731f62", AreaCover = "briefcase", IsAchieved = false},
+            new Area { Id = ShortGuidGenerator.GenerateShortGuid(), Name = "Side Hustle",LabelId = "3f81a686-3531-11e8-36e5-f0d534f731f63", AreaCover = "money-bill-trend-up", IsAchieved = false},
+            new Area { Id = ShortGuidGenerator.GenerateShortGuid(), Name = "Travel", LabelId = "1f81a686-1531-11e8-16e5-f0d5bf731f61" ,AreaCover = "route", IsAchieved = false},
+            new Area { Id = ShortGuidGenerator.GenerateShortGuid(), Name = "Learning", LabelId = "4f81a612-4531-11e8-46e5-f0d534f731f64" ,AreaCover = "leanpub", IsAchieved = false}
             );
 
         modelBuilder.Entity<Area>().HasOne(ar => ar.Labels)

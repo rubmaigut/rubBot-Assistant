@@ -26,18 +26,6 @@ namespace RubBotApi.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "NoteBooks",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_NoteBooks", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Status",
                 columns: table => new
                 {
@@ -57,7 +45,8 @@ namespace RubBotApi.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LabelId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     AreaCover = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IsAchieved = table.Column<bool>(type: "bit", nullable: false)
+                    IsAchieved = table.Column<bool>(type: "bit", nullable: false),
+                    LabelsId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -68,6 +57,11 @@ namespace RubBotApi.Migrations
                         principalTable: "Labels",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Areas_Labels_LabelsId",
+                        column: x => x.LabelsId,
+                        principalTable: "Labels",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -223,79 +217,18 @@ namespace RubBotApi.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Notes",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    StatusId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    LabelId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    LastEditedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    AreasId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ProjectsId = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    TaskId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ResourcesId = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    IsAchieved = table.Column<bool>(type: "bit", nullable: false),
-                    NoteBooksId = table.Column<string>(type: "nvarchar(450)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Notes", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Notes_Areas_AreasId",
-                        column: x => x.AreasId,
-                        principalTable: "Areas",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Notes_Labels_LabelId",
-                        column: x => x.LabelId,
-                        principalTable: "Labels",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Notes_NoteBooks_NoteBooksId",
-                        column: x => x.NoteBooksId,
-                        principalTable: "NoteBooks",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Notes_Projects_ProjectsId",
-                        column: x => x.ProjectsId,
-                        principalTable: "Projects",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Notes_Resources_ResourcesId",
-                        column: x => x.ResourcesId,
-                        principalTable: "Resources",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Notes_Status_StatusId",
-                        column: x => x.StatusId,
-                        principalTable: "Status",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Notes_Tasks_TaskId",
-                        column: x => x.TaskId,
-                        principalTable: "Tasks",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
             migrationBuilder.InsertData(
                 table: "Labels",
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
-                    { "2f81a112-5678-11e8-86e5-f0d534f731f68", "Fitness" },
-                    { "2f81a612-7531-11e8-86e5-f0d534f731f68", "School" },
-                    { "2f81a632-9012-11e8-86e5-f0d534f731f68", "Investment" },
-                    { "2f81a686-7531-11e8-86e5-f0d534f731f68", "Business" },
-                    { "2f81a686-7531-11e8-86e5-f0d5bf731f68", "Personal" },
-                    { "2f81a789-1234-11e8-86e5-f0d534f731f68", "Productivity" },
-                    { "2f99a636-7111-11e8-86e5-f0d534f731f68", "Work" }
+                    { "1f81a686-1531-11e8-16e5-f0d5bf731f61", "Personal" },
+                    { "2f99a636-2111-11e8-26e5-f0d534f731f62", "Work" },
+                    { "3f81a686-3531-11e8-36e5-f0d534f731f63", "Business" },
+                    { "4f81a612-4531-11e8-46e5-f0d534f731f64", "School" },
+                    { "5f81a789-5234-11e8-56e5-f0d534f731f65", "Productivity" },
+                    { "6f81a112-6678-11e8-66e5-f0d534f731f66", "Fitness" },
+                    { "7f81a632-7012-11e8-76e5-f0d534f731f67", "Investment" }
                 });
 
             migrationBuilder.InsertData(
@@ -311,16 +244,21 @@ namespace RubBotApi.Migrations
 
             migrationBuilder.InsertData(
                 table: "Areas",
-                columns: new[] { "Id", "AreaCover", "IsAchieved", "LabelId", "Name" },
+                columns: new[] { "Id", "AreaCover", "IsAchieved", "LabelId", "LabelsId", "Name" },
                 values: new object[,]
                 {
-                    { "280c9bbeb9f46af1", "money-bill-trend-up", false, "2f81a686-7531-11e8-86e5-f0d534f731f68", "Side Hustle" },
-                    { "3165c2ffbc32c7b7", "user", false, "2f81a686-7531-11e8-86e5-f0d5bf731f68", "Personal" },
-                    { "3fea19696abe8bcf", "briefcase", false, "2f99a636-7111-11e8-86e5-f0d534f731f68", "Work" },
-                    { "4e33dab54181420f", "leanpub", false, "2f81a612-7531-11e8-86e5-f0d534f731f68", "Learning" },
-                    { "50fc739db1043beb", "dumbbell", false, "2f81a112-5678-11e8-86e5-f0d534f731f68", "Health & Fitness" },
-                    { "e905912d76ef7618", "route", false, "2f81a686-7531-11e8-86e5-f0d5bf731f68", "Travel" }
+                    { "31483485000784f6", "route", false, "1f81a686-1531-11e8-16e5-f0d5bf731f61", null, "Travel" },
+                    { "691460af7e50befd", "dumbbell", false, "6f81a112-6678-11e8-66e5-f0d534f731f66", null, "Health & Fitness" },
+                    { "6e3ab353ba1f109a", "briefcase", false, "2f99a636-2111-11e8-26e5-f0d534f731f62", null, "Work" },
+                    { "8850a149a403ea70", "leanpub", false, "4f81a612-4531-11e8-46e5-f0d534f731f64", null, "Learning" },
+                    { "dce86ddd2b57d888", "money-bill-trend-up", false, "3f81a686-3531-11e8-36e5-f0d534f731f63", null, "Side Hustle" },
+                    { "e163ea7c7e495a08", "user", false, "1f81a686-1531-11e8-16e5-f0d5bf731f61", null, "Personal" }
                 });
+
+            migrationBuilder.InsertData(
+                table: "Projects",
+                columns: new[] { "Id", "EndDate", "IsAchieved", "Name", "StartDate", "StatusId" },
+                values: new object[] { "0d0b5c4d6ab2f474", new DateTime(2024, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), false, "Sample Project", new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "2f81a686-7531-11e8-86e5-f0d5bf731f68" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AreaProject_ProjectsId",
@@ -338,39 +276,9 @@ namespace RubBotApi.Migrations
                 column: "LabelId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Notes_AreasId",
-                table: "Notes",
-                column: "AreasId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Notes_LabelId",
-                table: "Notes",
-                column: "LabelId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Notes_NoteBooksId",
-                table: "Notes",
-                column: "NoteBooksId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Notes_ProjectsId",
-                table: "Notes",
-                column: "ProjectsId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Notes_ResourcesId",
-                table: "Notes",
-                column: "ResourcesId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Notes_StatusId",
-                table: "Notes",
-                column: "StatusId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Notes_TaskId",
-                table: "Notes",
-                column: "TaskId");
+                name: "IX_Areas_LabelsId",
+                table: "Areas",
+                column: "LabelsId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProjectResource_ResourcesId",
@@ -413,19 +321,13 @@ namespace RubBotApi.Migrations
                 name: "AreaResource");
 
             migrationBuilder.DropTable(
-                name: "Notes");
-
-            migrationBuilder.DropTable(
                 name: "ProjectResource");
 
             migrationBuilder.DropTable(
-                name: "Areas");
-
-            migrationBuilder.DropTable(
-                name: "NoteBooks");
-
-            migrationBuilder.DropTable(
                 name: "Tasks");
+
+            migrationBuilder.DropTable(
+                name: "Areas");
 
             migrationBuilder.DropTable(
                 name: "Projects");

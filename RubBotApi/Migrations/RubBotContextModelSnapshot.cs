@@ -83,6 +83,9 @@ namespace RubBotApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("LabelsId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -91,55 +94,57 @@ namespace RubBotApi.Migrations
 
                     b.HasIndex("LabelId");
 
+                    b.HasIndex("LabelsId");
+
                     b.ToTable("Areas");
 
                     b.HasData(
                         new
                         {
-                            Id = "3165c2ffbc32c7b7",
+                            Id = "e163ea7c7e495a08",
                             AreaCover = "user",
                             IsAchieved = false,
-                            LabelId = "2f81a686-7531-11e8-86e5-f0d5bf731f68",
+                            LabelId = "1f81a686-1531-11e8-16e5-f0d5bf731f61",
                             Name = "Personal"
                         },
                         new
                         {
-                            Id = "50fc739db1043beb",
+                            Id = "691460af7e50befd",
                             AreaCover = "dumbbell",
                             IsAchieved = false,
-                            LabelId = "2f81a112-5678-11e8-86e5-f0d534f731f68",
+                            LabelId = "6f81a112-6678-11e8-66e5-f0d534f731f66",
                             Name = "Health & Fitness"
                         },
                         new
                         {
-                            Id = "3fea19696abe8bcf",
+                            Id = "6e3ab353ba1f109a",
                             AreaCover = "briefcase",
                             IsAchieved = false,
-                            LabelId = "2f99a636-7111-11e8-86e5-f0d534f731f68",
+                            LabelId = "2f99a636-2111-11e8-26e5-f0d534f731f62",
                             Name = "Work"
                         },
                         new
                         {
-                            Id = "280c9bbeb9f46af1",
+                            Id = "dce86ddd2b57d888",
                             AreaCover = "money-bill-trend-up",
                             IsAchieved = false,
-                            LabelId = "2f81a686-7531-11e8-86e5-f0d534f731f68",
+                            LabelId = "3f81a686-3531-11e8-36e5-f0d534f731f63",
                             Name = "Side Hustle"
                         },
                         new
                         {
-                            Id = "e905912d76ef7618",
+                            Id = "31483485000784f6",
                             AreaCover = "route",
                             IsAchieved = false,
-                            LabelId = "2f81a686-7531-11e8-86e5-f0d5bf731f68",
+                            LabelId = "1f81a686-1531-11e8-16e5-f0d5bf731f61",
                             Name = "Travel"
                         },
                         new
                         {
-                            Id = "4e33dab54181420f",
+                            Id = "8850a149a403ea70",
                             AreaCover = "leanpub",
                             IsAchieved = false,
-                            LabelId = "2f81a612-7531-11e8-86e5-f0d534f731f68",
+                            LabelId = "4f81a612-4531-11e8-46e5-f0d534f731f64",
                             Name = "Learning"
                         });
                 });
@@ -160,115 +165,39 @@ namespace RubBotApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2f81a686-7531-11e8-86e5-f0d5bf731f68",
+                            Id = "1f81a686-1531-11e8-16e5-f0d5bf731f61",
                             Name = "Personal"
                         },
                         new
                         {
-                            Id = "2f99a636-7111-11e8-86e5-f0d534f731f68",
+                            Id = "2f99a636-2111-11e8-26e5-f0d534f731f62",
                             Name = "Work"
                         },
                         new
                         {
-                            Id = "2f81a686-7531-11e8-86e5-f0d534f731f68",
+                            Id = "3f81a686-3531-11e8-36e5-f0d534f731f63",
                             Name = "Business"
                         },
                         new
                         {
-                            Id = "2f81a612-7531-11e8-86e5-f0d534f731f68",
+                            Id = "4f81a612-4531-11e8-46e5-f0d534f731f64",
                             Name = "School"
                         },
                         new
                         {
-                            Id = "2f81a789-1234-11e8-86e5-f0d534f731f68",
+                            Id = "5f81a789-5234-11e8-56e5-f0d534f731f65",
                             Name = "Productivity"
                         },
                         new
                         {
-                            Id = "2f81a112-5678-11e8-86e5-f0d534f731f68",
+                            Id = "6f81a112-6678-11e8-66e5-f0d534f731f66",
                             Name = "Fitness"
                         },
                         new
                         {
-                            Id = "2f81a632-9012-11e8-86e5-f0d534f731f68",
+                            Id = "7f81a632-7012-11e8-76e5-f0d534f731f67",
                             Name = "Investment"
                         });
-                });
-
-            modelBuilder.Entity("RubBotApi.Models.Note", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("AreasId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("CreatedTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsAchieved")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("LabelId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("LastEditedTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NoteBooksId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ProjectsId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ResourcesId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("StatusId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("TaskId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AreasId");
-
-                    b.HasIndex("LabelId");
-
-                    b.HasIndex("NoteBooksId");
-
-                    b.HasIndex("ProjectsId");
-
-                    b.HasIndex("ResourcesId");
-
-                    b.HasIndex("StatusId");
-
-                    b.HasIndex("TaskId");
-
-                    b.ToTable("Notes");
-                });
-
-            modelBuilder.Entity("RubBotApi.Models.NoteBooks", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("NoteBooks");
                 });
 
             modelBuilder.Entity("RubBotApi.Models.Project", b =>
@@ -298,6 +227,17 @@ namespace RubBotApi.Migrations
                     b.HasIndex("StatusId");
 
                     b.ToTable("Projects");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "0d0b5c4d6ab2f474",
+                            EndDate = new DateTime(2024, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsAchieved = false,
+                            Name = "Sample Project",
+                            StartDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            StatusId = "2f81a686-7531-11e8-86e5-f0d5bf731f68"
+                        });
                 });
 
             modelBuilder.Entity("RubBotApi.Models.Resource", b =>
@@ -458,64 +398,17 @@ namespace RubBotApi.Migrations
 
             modelBuilder.Entity("RubBotApi.Models.Area", b =>
                 {
-                    b.HasOne("RubBotApi.Models.Labels", "Type")
-                        .WithMany("Areas")
-                        .HasForeignKey("LabelId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Type");
-                });
-
-            modelBuilder.Entity("RubBotApi.Models.Note", b =>
-                {
-                    b.HasOne("RubBotApi.Models.Area", "Areas")
-                        .WithMany("Notes")
-                        .HasForeignKey("AreasId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("RubBotApi.Models.Labels", "Labels")
-                        .WithMany("Notes")
+                        .WithMany()
                         .HasForeignKey("LabelId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("RubBotApi.Models.NoteBooks", null)
-                        .WithMany("Notes")
-                        .HasForeignKey("NoteBooksId");
-
-                    b.HasOne("RubBotApi.Models.Project", "Projects")
-                        .WithMany("Notes")
-                        .HasForeignKey("ProjectsId");
-
-                    b.HasOne("RubBotApi.Models.Resource", "Resources")
-                        .WithMany()
-                        .HasForeignKey("ResourcesId");
-
-                    b.HasOne("RubBotApi.Models.Status", "Status")
-                        .WithMany("Notes")
-                        .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("RubBotApi.Models.Tasks", "Tasks")
-                        .WithMany("Notes")
-                        .HasForeignKey("TaskId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Areas");
+                    b.HasOne("RubBotApi.Models.Labels", null)
+                        .WithMany("Areas")
+                        .HasForeignKey("LabelsId");
 
                     b.Navigation("Labels");
-
-                    b.Navigation("Projects");
-
-                    b.Navigation("Resources");
-
-                    b.Navigation("Status");
-
-                    b.Navigation("Tasks");
                 });
 
             modelBuilder.Entity("RubBotApi.Models.Project", b =>
@@ -567,29 +460,15 @@ namespace RubBotApi.Migrations
                     b.Navigation("Resources");
                 });
 
-            modelBuilder.Entity("RubBotApi.Models.Area", b =>
-                {
-                    b.Navigation("Notes");
-                });
-
             modelBuilder.Entity("RubBotApi.Models.Labels", b =>
                 {
                     b.Navigation("Areas");
 
-                    b.Navigation("Notes");
-
                     b.Navigation("Resources");
-                });
-
-            modelBuilder.Entity("RubBotApi.Models.NoteBooks", b =>
-                {
-                    b.Navigation("Notes");
                 });
 
             modelBuilder.Entity("RubBotApi.Models.Project", b =>
                 {
-                    b.Navigation("Notes");
-
                     b.Navigation("Tasks");
                 });
 
@@ -600,16 +479,9 @@ namespace RubBotApi.Migrations
 
             modelBuilder.Entity("RubBotApi.Models.Status", b =>
                 {
-                    b.Navigation("Notes");
-
                     b.Navigation("Projects");
 
                     b.Navigation("Resources");
-                });
-
-            modelBuilder.Entity("RubBotApi.Models.Tasks", b =>
-                {
-                    b.Navigation("Notes");
                 });
 #pragma warning restore 612, 618
         }

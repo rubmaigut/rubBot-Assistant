@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RubBotApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a456b7595074998bb9918469a2d6923bbdf6e117")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+74d9fb98dd9bcec45353d6834dfbbbaa5ef737a0")]
 [assembly: System.Reflection.AssemblyProductAttribute("RubBotApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RubBotApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
